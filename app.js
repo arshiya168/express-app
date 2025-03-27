@@ -4,6 +4,13 @@ const port = 3000;
 
 app.use(express.json());
 
+app.use("/login", (req,res) => {
+    res.status(200).json({
+        msg: "log in successful"
+    })
+    next();
+});
+
 
 app.get("/login", (req,res) => {
     res.status(200).json({
@@ -11,4 +18,6 @@ app.get("/login", (req,res) => {
     })
 });
 
-app.listen(port);
+app.listen(port , () => {
+    console.log(`server is running at port ${port}`);
+});
